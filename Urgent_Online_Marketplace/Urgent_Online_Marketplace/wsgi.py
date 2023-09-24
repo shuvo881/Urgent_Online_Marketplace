@@ -15,4 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Urgent_Online_Marketplace.setti
 
 application = get_wsgi_application()
 
-app = application()
+app = application
