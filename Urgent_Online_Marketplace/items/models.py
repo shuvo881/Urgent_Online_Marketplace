@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ip2geotools.databases.noncommercial import DbIpCity
+
 
 # Create your models here.
 
