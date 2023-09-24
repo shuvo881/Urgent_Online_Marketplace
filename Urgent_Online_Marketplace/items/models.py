@@ -22,7 +22,7 @@ class Item(models.Model):
     price = models.FloatField()
     description = models.TextField(blank=True, null=True)
     location = models.CharField(max_length=30, blank=True, null=True)
-    image = models.ImageField(upload_to='item_images', blank=True, null=True)
+    image = models.ImageField(upload_to='item_images/')
     is_sold = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
