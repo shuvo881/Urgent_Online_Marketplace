@@ -49,7 +49,7 @@ def signin(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, "Login successful, enjoy the website")
-                return redirect(reverse('index'))
+                return redirect('index')
             else:
                 messages.error(request, "Username or password is invalid")
         except Exception as e:
