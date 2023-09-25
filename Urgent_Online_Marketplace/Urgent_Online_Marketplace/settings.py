@@ -144,4 +144,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*.railway.com', 'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://urgentonlinemarketplace-production.up.railway.app', 'https://*.127.0.0.1']
