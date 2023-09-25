@@ -27,7 +27,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Registration Completed')
-            return redirect(reverse('login'))
+            return redirect(reverse('signin'))
         else:
             messages.error(request, "")
 
