@@ -7,7 +7,7 @@ from .forms import ConversationMessagesForm
 # Create your views here.
 
 
-@login_required
+@login_required(login_url='signin')
 def new_conversation(request, item_pk):
     item = Item.objects.get(pk=item_pk)
 
@@ -35,7 +35,7 @@ def new_conversation(request, item_pk):
     return render(request, 'conversation/new_conversation.html', {'form': form})
 
 
-@login_required
+@login_required(login_url='signin')
 def inbox(request):
     conversations = Conversation.objects.filter(members__in=[request.user.id])
 
@@ -43,7 +43,7 @@ def inbox(request):
         'conversations': conversations
     })
 
-@login_required
+@login_required(login_url='signin')
 def detail(request, pk):
     conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
 

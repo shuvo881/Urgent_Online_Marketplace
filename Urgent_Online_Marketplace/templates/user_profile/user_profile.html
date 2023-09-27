@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl">
+
+    <p class="w-full py-4 px-6 rounded-xl">Username: {{ user.username }}</p>
+    <p class="w-full py-4 px-6 rounded-xl">Email: {{ user.email }}</p>
+    <p class="w-full py-4 px-6 rounded-xl">First Name: {{ user.first_name }}</p>
+    <p class="w-full py-4 px-6 rounded-xl">Last Name: {{ user.last_name }}</p>
+    {% if request.user.is_authenticated and user == request.user%}
+        <div class="mt-6 p-6 bg-white rounded-xl">
+            <p> you can edit or delete your account !</p>
+            <a href="{% url '_profile_edit' request.user %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Edit</a>
+            <a href="{% url 'user_delete' %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl hover:bg-red-700">Delete</a>
+
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

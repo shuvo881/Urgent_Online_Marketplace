@@ -20,11 +20,11 @@ def details(request, pk):
         'related_items': related_items,
     })
 
-@login_required
+
+@login_required(login_url='signin')
 def new_item_add(request):
     if request.method == 'POST':
         form = NewItemAddForm(request.POST, request.FILES)
-        print("yes: ", request.FILES)
         if form.is_valid():
             item = form.save(commit=False)
             item.created_by = request.user
@@ -38,7 +38,8 @@ def new_item_add(request):
         form = NewItemAddForm()
     return render(request, 'items/new_item_add.html', {'form': form, 'title': 'New item'})
 
-@login_required
+
+@login_required(login_url='signin')
 def delete_item(request, pk):
     item = Item.objects.get(pk=pk, created_by=request.user)
     item.delete()
@@ -46,7 +47,7 @@ def delete_item(request, pk):
     return redirect('dashboard')
 
 
-@login_required
+@login_required(login_url='signin')
 def edit_item(request, pk):
 
     item = Item.objects.get(pk=pk, created_by=request.user)

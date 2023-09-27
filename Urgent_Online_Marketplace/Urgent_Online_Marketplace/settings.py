@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'items',
     'dashboard',
     'conversation',
+    'user_profile',
 
 ]
 

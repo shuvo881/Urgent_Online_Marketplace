@@ -4,7 +4,8 @@ from items.models import Item
 
 # Create your views here.
 
-@login_required
+
+@login_required(login_url='signin')
 def dashboard(request):
     items = Item.objects.filter(created_by=request.user)
 
